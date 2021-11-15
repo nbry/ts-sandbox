@@ -1,0 +1,5 @@
+{
+  "tsconfig": "tsconfig.json",
+  "out": "build/docs",
+  "emit": true
+}
