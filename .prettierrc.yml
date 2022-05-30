@@ -1,13 +1,13 @@
 printWidth: 80
-tabWidth: 2
+tabWidth: 4
 useTabs: false
 semi: true
-singleQuote: true
+singleQuote: false
 quoteProps: 'as-needed'
 jsxSingleQuote: false
 trailingComma: 'all'
 bracketSpacing: true
-arrowParens: 'avoid'
+# arrowParens: 'avoid'
 proseWrap: 'preserve'
 htmlWhitespaceSensitivity: 'css'
 endOfLine: 'lf'
