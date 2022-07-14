@@ -9,7 +9,7 @@
     "start:build": "tsc -w --pretty",
     "start:run": "nodemon -q build/index.js",
     "start": "concurrently npm:start:*",
-    "test": "ts-jest src"
+    "test": "jest"
   },
   "author": "nbry",
   "license": "ISC",
