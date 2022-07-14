@@ -1,5 +1,6 @@
 env:
     es2021: true
+    jest/globals: true
     node: true
 extends:
     - eslint:recommended
@@ -7,6 +8,7 @@ extends:
     - plugin:@typescript-eslint/eslint-recommended
 parser: "@typescript-eslint/parser"
 plugins:
+    - "jest"
     - "@typescript-eslint"
     - "prettier"
 rules:

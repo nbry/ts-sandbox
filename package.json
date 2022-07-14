@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "debug": "nodemon -q -w ./src -x ts-node ./src/index.ts",
     "docs": "typedoc src",
     "start:build": "tsc -w --pretty",
     "start:run": "nodemon -q build/index.js",
-    "start": "concurrently npm:start:*"
+    "start": "concurrently npm:start:*",
+    "test": "ts-jest src"
   },
   "author": "nbry",
   "license": "ISC",
@@ -25,6 +27,7 @@
     "jest": "^28.1.0",
     "nodemon": "^2.0.16",
     "prettier": "^2.6.2",
+    "ts-jest": "^28.0.6",
     "ts-node": "^10.8.0",
     "typedoc": "^0.22.15"
   },
