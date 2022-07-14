@@ -1,3 +1,7 @@
+/**
+ * Given a list items sorted in ascending order, determine
+ * if target is in the list.
+ */
 export function mergeSort<T>(arr: T[]): T[] {
     if (arr.length < 2) {
         return arr;
@@ -6,15 +10,22 @@ export function mergeSort<T>(arr: T[]): T[] {
     const sortedLeft = mergeSort(left);
     const sortedRight = mergeSort(right);
 
-    return mergeTwo(sortedLeft, sortedRight);
+    return mergeTwoSortedLists(sortedLeft, sortedRight);
 }
 
+/**
+ * Given a single list, return two slices of the list,
+ * each slice being a half of the original list.
+ */
 function cleave<T>(arr: T[]): [T[], T[]] {
     const halfIdx = Math.floor(arr.length / 2);
     return [arr.slice(0, halfIdx), arr.slice(halfIdx)];
 }
 
-function mergeTwo<T>(left: T[], right: T[]): T[] {
+/**
+ * Given two sorted lists, merge into a single sorted list.
+ */
+function mergeTwoSortedLists<T>(left: T[], right: T[]): T[] {
     let i = 0;
     let j = 0;
     const result = [];
@@ -38,9 +49,13 @@ function mergeTwo<T>(left: T[], right: T[]): T[] {
     return result;
 }
 
-function flushRemaining<T>(result: T[], side: T[], idx: number) {
-    while (idx < side.length) {
-        result.push(side[idx]);
+/**
+ *  Given a reference to the "result" of mergeTwoSortedLists,
+ *  put the remaining items of the sortedSlice into the result.
+ */
+function flushRemaining<T>(result: T[], sortedSlice: T[], idx: number) {
+    while (idx < sortedSlice.length) {
+        result.push(sortedSlice[idx]);
         idx++;
     }
 }

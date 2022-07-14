@@ -1,34 +1,33 @@
-import { mergeSort } from "./merge-sort";
+import { mergeSort } from "./";
 
-[
-    {
-        title: "return array with length of 0",
-        subject: [],
-        expected: [],
-    },
-    {
-        title: "return array with length of 1",
-        subject: [22],
-        expected: [22],
-    },
-    {
-        title: "general test 1",
-        subject: [22, 11, 1],
-        expected: [1, 11, 22],
-    },
-    {
-        title: "general test 2",
-        subject: [1, 11, 22],
-        expected: [1, 11, 22],
-    },
-    {
-        title: "general test 3",
-        subject: [99, 5, 3, 44, 7, 19, 21, 900],
-        expected: [3, 5, 7, 19, 21, 44, 99, 900],
-    },
-].forEach(({ title, subject, expected }) => {
-    test(title, () => {
+describe("mergeSort", () => {
+    it("returns the array when the array's length is 0", () => {
+        const subject: number[] = [];
         const result = mergeSort(subject);
-        expect(result).toStrictEqual(expected);
+        expect(result).toStrictEqual([]);
+    });
+
+    it("returns the array when the array's length is 1", () => {
+        const subject = [22];
+        const result = mergeSort(subject);
+        expect(result).toStrictEqual([22]);
+    });
+
+    test("array is already in order", () => {
+        const subject = [1, 11, 22];
+        const result = mergeSort(subject);
+        expect(result).toStrictEqual(subject);
+    });
+
+    test("array is in reverse order", () => {
+        const subject = [22, 11, 1];
+        const result = mergeSort(subject);
+        expect(result).toStrictEqual([1, 11, 22]);
+    });
+
+    test("array is randomly assorted", () => {
+        const subject = [99, 5, 3, 44, 7, 19, 21, 900];
+        const result = mergeSort(subject);
+        expect(result).toStrictEqual([3, 5, 7, 19, 21, 44, 99, 900]);
     });
 });
